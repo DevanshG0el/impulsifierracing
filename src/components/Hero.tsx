@@ -1,26 +1,50 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Navigation, { SideNavigation } from "./Navigation";
 import PlayButton from "./PlayButton";
 import Globe from "./Globe";
+import TextType from "./TextType";
 
 export default function Hero() {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const [showHeroOverlays, setShowHeroOverlays] = useState(true);
+
+  useEffect(() => {
+    const element = sectionRef.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // Hide the floating hero UI once the hero is mostly scrolled past.
+        setShowHeroOverlays((entry.intersectionRatio ?? 0) > 0.6);
+      },
+      { threshold: [0, 0.25, 0.5, 0.75, 1] }
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section className="relative isolate min-h-screen flex items-center overflow-hidden bg-[#0a0a0a]">
+    <section
+      ref={sectionRef}
+      className="relative isolate min-h-screen flex items-center overflow-hidden bg-[#0a0a0a]"
+    >
       <Navigation />
 
       {/* Side Navigation (Desktop) */}
-      <SideNavigation className="absolute right-12 top-1/2 -translate-y-1/2" />
+      {showHeroOverlays && (
+        <SideNavigation className="absolute right-12 top-1/2 -translate-y-1/2" />
+      )}
 
       {/* Background Image/Video Placeholder */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent z-10" />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/50 z-10" />
         {/* Placeholder for background - replace with actual image/video */}
-        <div 
+        <div
           className="w-full h-full bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: `url('/hero-bg.jpg')`,
@@ -32,36 +56,24 @@ export default function Hero() {
       {/* Content */}
       <div className="relative z-20 w-full max-w-7xl mx-auto px-6 lg:px-12 py-32">
         <div className="max-w-2xl">
-          {/* Main Heading */}
+          {/* Main Heading with TextType Animation */}
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
-            <span className="block animate-fade-in-up">Race beyond</span>
-            <span className="block animate-fade-in-up" style={{ animationDelay: '0.2s' }}>the limits of</span>
-            <span className="block text-[var(--accent)] animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-              speed
-            </span>
+            <span className="block">Race beyond</span>
+            <span className="block">the limits of</span>
+            <TextType
+              text={["speed", "innovation", "precision", "victory"]}
+              as="span"
+              className="block text-[#ff6b00]"
+              typingSpeed={80}
+              deletingSpeed={50}
+              pauseDuration={2000}
+              loop={true}
+              showCursor={true}
+              cursorCharacter="_"
+              cursorClassName="text-[#ff6b00]"
+              startOnVisible={true}
+            />
           </h1>
-
-          {/* Subtitle */}
-          <p className="mt-6 text-lg text-white/60 max-w-md animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-            Experience the thrill of high-performance racing with Impulsifier Racing. 
-            Where engineering meets adrenaline.
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="mt-10 flex flex-wrap gap-4 animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
-            <a
-              href="/about"
-              className="px-8 py-3 bg-[var(--accent)] text-white font-semibold rounded-full hover:bg-[var(--accent-hover)] transition-colors duration-300"
-            >
-              Explore Our Team
-            </a>
-            <a
-              href="/contact"
-              className="px-35 py-10 border border-white/30 text-white font-semibold rounded-full hover:bg-white/10 transition-colors duration-300"
-            >
-              Get In Touch
-            </a>
-          </div>
         </div>
 
         {/* Play Video Button */}
@@ -71,22 +83,26 @@ export default function Hero() {
       </div>
 
       {/* Globe Decoration */}
-      <Globe />
+      {showHeroOverlays && <Globe />}
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-6 lg:left-12 flex items-center gap-3 z-20">
-        <div className="w-px h-16 bg-gradient-to-b from-transparent via-[var(--accent)] to-transparent" />
-        <span className="text-white/50 text-sm tracking-widest uppercase rotate-90 origin-left translate-x-4">
-          Scroll
-        </span>
-      </div>
+      {showHeroOverlays && (
+        <div className="absolute bottom-8 left-6 lg:left-12 flex items-center gap-3 z-20">
+          <div className="w-px h-16 bg-gradient-to-b from-transparent via-[var(--accent)] to-transparent" />
+          <span className="text-white/50 text-sm tracking-widest uppercase rotate-90 origin-left translate-x-4">
+            Scroll
+          </span>
+        </div>
+      )}
 
       {/* Stats */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden lg:flex items-center gap-12 z-20">
-        <Stat number="25+" label="Race Victories" />
-        <Stat number="150+" label="Team Members" />
-        <Stat number="10" label="Years of Excellence" />
-      </div>
+      {showHeroOverlays && (
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden lg:flex items-center gap-12 z-20">
+          <Stat number="25+" label="Race Victories" />
+          <Stat number="150+" label="Team Members" />
+          <Stat number="10" label="Years of Excellence" />
+        </div>
+      )}
 
       {/* Video Modal */}
       {isVideoPlaying && (

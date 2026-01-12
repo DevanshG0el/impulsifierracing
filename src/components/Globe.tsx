@@ -1,6 +1,6 @@
 export default function Globe() {
   return (
-    <div className="absolute -right-32 -bottom-32 w-[600px] h-[600px] opacity-20 pointer-events-none z-10">
+    <div className="absolute right-0 -bottom-32 w-[600px] h-[600px] opacity-20 pointer-events-none z-10 overflow-hidden">
       <svg
         viewBox="0 0 400 400"
         fill="none"

@@ -42,8 +42,8 @@ const features = [
 
 export default function FeaturesSection() {
   return (
-    <section className="py-24 bg-[var(--background)]">
-      <div className="max-w-7xl mx-auto px-100 lg:px-12">
+    <section className="w-full py-24 bg-[var(--background)]">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Why <span className="text-[var(--accent)]">Impulsifier</span>?
@@ -57,7 +57,7 @@ export default function FeaturesSection() {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="group p-6 bg-[var(--secondary)] rounded-2xl border border-white/5 hover:border-[var(--accent)]/30 transition-all duration-300"
+              className="group w-full p-6 bg-[var(--secondary)] rounded-2xl border border-white/5 hover:border-[var(--accent)]/30 transition-all duration-300"
             >
               <div className="w-14 h-14 rounded-xl bg-[var(--accent)]/10 flex items-center justify-center text-[var(--accent)] mb-4 group-hover:bg-[var(--accent)] group-hover:text-white transition-all duration-300">
                 {feature.icon}
