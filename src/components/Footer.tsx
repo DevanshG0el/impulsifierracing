@@ -10,7 +10,7 @@ const footerLinks = {
     ],
     resources: [
         { name: "Technology", href: "/technology" },
-        { name: "Blog", href: "/blog" },
+        { name: "Updates", href: "/updates" },
         { name: "Press Kit", href: "/press" },
         { name: "Sponsors", href: "/sponsors" },
     ],
@@ -157,7 +157,7 @@ export default function Footer() {
                         <p className="text-white/40 text-sm">
                             © {new Date().getFullYear()} Impulsifier Racing. All rights reserved.
                         </p>
- 
+
                     </div>
                 </div>
             </div>

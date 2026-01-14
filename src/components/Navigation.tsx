@@ -10,7 +10,7 @@ export const navLinks = [
   { name: "Gallery", href: "/gallery" },
   { name: "Technology", href: "/technology" },
   { name: "Events", href: "/events" },
-  { name: "Blog", href: "/blog" },
+  { name: "Updates", href: "/updates" },
   { name: "Contact", href: "/contact" },
 ];
 

@@ -85,7 +85,7 @@ export default function EventsPage() {
       {/* Upcoming Events */}
       <section className="py-32 bg-[#0a0a0a] border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white" style={{ marginBottom: '48px' }}>
+          <h2 className="text-3xl md:text-4xl font-bold text-white" style={{ marginBottom: '48px', marginTop: '48px' }}>
             Upcoming <span className="text-[#ff6b00]">Events</span>
           </h2>
           <div className="space-y-6">
@@ -119,7 +119,7 @@ export default function EventsPage() {
       {/* Past Events */}
       <section className="py-32 pb-48 bg-[#0a0a0a]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white" style={{ marginBottom: '48px' }}>
+          <h2 className="text-3xl md:text-4xl font-bold text-white" style={{ marginBottom: '48px', marginTop: '48px' }}>
             Past <span className="text-[#ff6b00]">Results</span>
           </h2>
           <div className="space-y-6">
