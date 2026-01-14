@@ -1,10 +1,7 @@
-import Link from "next/link";
-import Navigation, { SideNavigation } from "@/components/Navigation";
+"use client";
 
-export const metadata = {
-  title: "Team | Impulsifier Racing",
-  description: "Meet the talented drivers, engineers, and strategists behind Impulsifier Racing.",
-};
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 
 const teamMembers = [
   {
@@ -66,18 +63,44 @@ const teamMembers = [
 ];
 
 export default function TeamPage() {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    const element = sectionRef.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div>
+    <div className="bg-[#0a0a0a]">
       {/* Hero Section */}
-      <section className="py-24 bg-[var(--secondary)] relative overflow-hidden">
-        <Navigation />
-        <SideNavigation className="absolute right-12 top-1/2 -translate-y-1/2" />
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      <section className="relative min-h-[60vh] flex items-center overflow-hidden bg-[#0a0a0a] border-b border-white/5">
+        {/* Background Gradient */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full bg-[#ff6b00]/10 blur-3xl" />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-32 relative z-10">
           <div className="max-w-3xl">
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-              Our <span className="text-[var(--accent)]">Team</span>
+            <span className="text-[#ff6b00] text-sm font-medium tracking-wider uppercase block" style={{ marginBottom: '24px' }}>
+              The People Behind the Speed
+            </span>
+            <h1 className="text-5xl md:text-7xl font-bold text-white" style={{ marginBottom: '32px' }}>
+              Our <span className="text-[#ff6b00]">Team</span>
             </h1>
-            <p className="text-white/60 text-lg leading-relaxed">
+            <p className="text-white/60 text-lg leading-relaxed" style={{ marginBottom: '48px' }}>
               Meet the passionate individuals who make Impulsifier Racing a force to be reckoned with on every track.
             </p>
           </div>
@@ -85,33 +108,39 @@ export default function TeamPage() {
       </section>
 
       {/* Team Grid */}
-      <section className="py-24 bg-[var(--background)]">
+      <section ref={sectionRef} className="py-32 bg-[#0a0a0a] border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {teamMembers.map((member, index) => (
               <div
                 key={index}
-                className="group relative overflow-hidden rounded-2xl bg-[var(--secondary)]"
+                className={`group relative overflow-hidden rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                style={{ transitionDelay: `${index * 100}ms` }}
               >
                 {/* Image */}
                 <div className="aspect-[3/4] relative overflow-hidden">
-                  <div 
+                  <div
                     className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
                     style={{
-                      backgroundColor: '#2a2a2a',
-                      backgroundImage: `url('${member.image}')`
+                      backgroundColor: '#1a1a1a',
+                      backgroundImage: `url('${member.image}')`,
+                      backgroundSize: 'cover'
                     }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+
+                  {/* Hover Bio */}
+                  <div className="absolute inset-0 bg-black/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-6">
+                    <p className="text-white/80 text-sm leading-relaxed text-center">
+                      {member.bio}
+                    </p>
+                  </div>
                 </div>
-                
+
                 {/* Info */}
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <h3 className="text-xl font-semibold text-white">{member.name}</h3>
-                  <p className="text-[var(--accent)] text-sm mb-2">{member.role}</p>
-                  <p className="text-white/50 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    {member.bio}
-                  </p>
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/90 to-transparent" style={{ padding: '24px 20px' }}>
+                  <h3 className="text-lg font-bold text-white" style={{ marginBottom: '4px', lineHeight: '1.3' }}>{member.name}</h3>
+                  <p className="text-[#ff6b00] text-xs font-medium uppercase tracking-wider" style={{ lineHeight: '1.4' }}>{member.role}</p>
                 </div>
               </div>
             ))}
@@ -119,23 +148,8 @@ export default function TeamPage() {
         </div>
       </section>
 
-      {/* Join the Team CTA */}
-      <section className="py-24 bg-[var(--secondary)]">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Want to Join Our Team?
-          </h2>
-          <p className="text-white/60 mb-8">
-            We&apos;re always looking for talented individuals who share our passion for racing excellence.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-block px-8 py-4 bg-[var(--accent)] text-white font-semibold rounded-full hover:bg-[var(--accent-hover)] transition-colors"
-          >
-            View Open Positions
-          </Link>
-        </div>
-      </section>
+
     </div>
   );
 }
+

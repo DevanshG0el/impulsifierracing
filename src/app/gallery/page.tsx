@@ -1,9 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Navigation, { SideNavigation } from "@/components/Navigation";
-
-const categories = ["All", "Race Day", "Behind the Scenes", "Team", "Celebrations", "Cars"];
 
 const galleryItems = [
   { id: 1, title: "Championship Victory", category: "Celebrations", size: "large" },
@@ -21,77 +18,66 @@ const galleryItems = [
 ];
 
 export default function GalleryPage() {
-  const [activeCategory, setActiveCategory] = useState("All");
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
-  const filteredItems = activeCategory === "All" 
-    ? galleryItems 
-    : galleryItems.filter(item => item.category === activeCategory);
-
   return (
-    <div>
+    <div className="bg-[#0a0a0a]">
       {/* Hero Section */}
-      <section className="py-24 bg-[var(--secondary)] relative overflow-hidden">
-        <Navigation />
-        <SideNavigation className="absolute right-12 top-1/2 -translate-y-1/2" />
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      <section className="relative min-h-[60vh] flex items-center overflow-hidden bg-[#0a0a0a] border-b border-white/5">
+        {/* Background Gradient */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full bg-[#ff6b00]/10 blur-3xl" />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-32 relative z-10">
           <div className="max-w-3xl">
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-              Photo <span className="text-[var(--accent)]">Gallery</span>
+            <span className="text-[#ff6b00] text-sm font-medium tracking-wider uppercase block" style={{ marginBottom: '24px' }}>
+              Moments Captured
+            </span>
+            <h1 className="text-5xl md:text-7xl font-bold text-white" style={{ marginBottom: '32px' }}>
+              Photo <span className="text-[#ff6b00]">Gallery</span>
             </h1>
-            <p className="text-white/60 text-lg leading-relaxed">
+            <p className="text-white/60 text-lg leading-relaxed" style={{ marginBottom: '48px' }}>
               Capturing the speed, passion, and glory of our racing journey through stunning imagery.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Filter */}
-      <section className="py-8 bg-[var(--background)] sticky top-16 z-30 border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="flex flex-wrap gap-4">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setActiveCategory(category)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                  activeCategory === category
-                    ? "bg-[var(--accent)] text-white"
-                    : "bg-[var(--secondary)] text-white/60 hover:text-white"
-                }`}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Gallery Grid */}
-      <section className="py-12 bg-[var(--background)]">
+      <section className="py-16 bg-[#0a0a0a]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[200px]">
-            {filteredItems.map((item) => (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 auto-rows-[250px]">
+            {galleryItems.map((item) => (
               <div
                 key={item.id}
                 onClick={() => setSelectedImage(item.id)}
-                className={`group relative overflow-hidden rounded-xl bg-[var(--secondary)] cursor-pointer ${
-                  item.size === "large" ? "col-span-2 row-span-2" : 
+                className={`group relative overflow-hidden rounded-2xl bg-white/5 border border-white/10 cursor-pointer hover:border-[#ff6b00]/50 transition-all duration-500 ${item.size === "large" ? "col-span-2 row-span-2" :
                   item.size === "medium" ? "col-span-2" : ""
-                }`}
+                  }`}
               >
-                <div 
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
                   style={{
                     backgroundColor: '#1a1a1a',
-                    backgroundImage: `url('/gallery/image-${item.id}.jpg')`
+                    backgroundImage: `url('/gallery/image-${item.id}.jpg')`,
+                    backgroundSize: 'cover'
                   }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
-                <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                  <h3 className="text-white font-semibold">{item.title}</h3>
-                  <p className="text-[var(--accent)] text-sm">{item.category}</p>
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                {/* Info - Always visible */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/90 to-transparent" style={{ padding: '24px 20px' }}>
+                  <h3 className="text-white font-bold text-lg" style={{ marginBottom: '4px', lineHeight: '1.3' }}>{item.title}</h3>
+                  <p className="text-[#ff6b00] text-xs font-medium uppercase tracking-wider">{item.category}</p>
+                </div>
+
+                {/* Hover Icon */}
+                <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                  </svg>
                 </div>
               </div>
             ))}
@@ -102,22 +88,31 @@ export default function GalleryPage() {
       {/* Lightbox Modal */}
       {selectedImage && (
         <div
-          className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4 backdrop-blur-sm"
           onClick={() => setSelectedImage(null)}
         >
           <button
             onClick={() => setSelectedImage(null)}
-            className="absolute top-6 right-6 text-white/80 hover:text-white"
+            className="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white/80 hover:text-white hover:bg-white/20 transition-all duration-300"
           >
-            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
-          <div className="max-w-5xl w-full aspect-video bg-[var(--secondary)] rounded-lg flex items-center justify-center">
-            <span className="text-white/30">Image {selectedImage}</span>
+          <div className="max-w-6xl w-full aspect-video bg-[#1a1a1a] rounded-2xl border border-white/10 flex items-center justify-center overflow-hidden">
+            <div className="text-center p-8">
+              <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-[#ff6b00]/10 flex items-center justify-center">
+                <svg className="w-10 h-10 text-[#ff6b00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <p className="text-white/60 text-lg">Image {selectedImage}</p>
+              <p className="text-white/40 text-sm mt-2">Click anywhere to close</p>
+            </div>
           </div>
         </div>
       )}
     </div>
   );
 }
+
