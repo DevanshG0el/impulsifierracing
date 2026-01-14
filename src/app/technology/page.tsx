@@ -90,7 +90,7 @@ export default function TechnologyPage() {
       </section>
 
       {/* Stats */}
-      <section className="py-32 bg-[#0a0a0a]">
+      <section className="py-32 pb-48 bg-[#0a0a0a]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <h2 className="text-3xl md:text-4xl font-bold text-white text-center" style={{ marginBottom: '48px' }}>
             By The <span className="text-[#ff6b00]">Numbers</span>
