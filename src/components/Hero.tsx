@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Navigation, { SideNavigation } from "./Navigation";
+import { SideNavigation } from "./Navigation";
 import PlayButton from "./PlayButton";
 import Globe from "./Globe";
 import TextType from "./TextType";
@@ -32,7 +32,6 @@ export default function Hero() {
       ref={sectionRef}
       className="relative isolate min-h-screen flex items-center overflow-hidden bg-[#0a0a0a]"
     >
-      <Navigation />
 
       {/* Side Navigation (Desktop) */}
       {showHeroOverlays && (
