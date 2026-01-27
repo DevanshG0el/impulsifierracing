@@ -86,43 +86,43 @@ function AnimatedCounter({ target }: { target: string }) {
 
 export default function FeaturesSection() {
     return (
-        <section className="w-full pt-32 pb-40 bg-[#0a0a0a]">
+        <section className="w-full py-24 md:py-32 lg:py-40 bg-[#0a0a0a]">
             <div className="max-w-7xl mx-auto px-6 lg:px-12">
                 {/* Section Header */}
-                <div className="text-center mb-24">
-                    <span className="text-[#ff6b00] text-sm font-medium tracking-wider uppercase mb-6 block">
+                <div className="text-center mb-16 md:mb-20 lg:mb-24">
+                    <span className="text-[#ff6b00] text-sm font-medium tracking-wider uppercase mb-4 block">
                         Why Choose Us
                     </span>
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white" style={{ marginBottom: '28px' }}>
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white" style={{ marginBottom: '32px' }}>
                         Why <span className="text-[#ff6b00]">Impulsifier</span>?
                     </h2>
-                    <p className="text-white/60 max-w-2xl mx-auto text-lg leading-relaxed" style={{ marginBottom: '48px' }}>
+                    <p className="text-white/60 max-w-2xl mx-auto text-base md:text-lg leading-relaxed" style={{ marginBottom: '80px' }}>
                         We combine passion with technology to create racing experiences that push the boundaries of what&apos;s possible.
                     </p>
                 </div>
 
                 {/* Features Grid - No Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-20">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-16 lg:gap-12 xl:gap-16 pt-20">
                     {features.map((feature, index) => (
                         <div key={index} className="text-center group">
                             {/* Icon */}
-                            <div className="w-16 h-16 mx-auto mb-8 rounded-2xl bg-[#ff6b00]/10 flex items-center justify-center text-[#ff6b00] group-hover:bg-[#ff6b00] group-hover:text-white transition-all duration-300">
+                            <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-[#ff6b00]/10 flex items-center justify-center text-[#ff6b00] group-hover:bg-[#ff6b00] group-hover:text-white transition-all duration-300">
                                 {feature.icon}
                             </div>
 
                             {/* Title */}
-                            <h3 className="text-xl font-bold text-white mb-4 group-hover:text-[#ff6b00] transition-colors">
+                            <h3 className="text-lg md:text-xl font-bold text-white mb-3 group-hover:text-[#ff6b00] transition-colors">
                                 {feature.title}
                             </h3>
 
                             {/* Description */}
-                            <p className="text-white/50 text-sm leading-relaxed mb-8">
+                            <p className="text-white/50 text-sm leading-relaxed mb-6 px-2">
                                 {feature.description}
                             </p>
 
                             {/* Stat */}
-                            <div className="pt-6 border-t border-white/10">
-                                <div className="text-3xl font-bold text-[#ff6b00] mb-1">
+                            <div className="pt-5 border-t border-white/10">
+                                <div className="text-3xl md:text-4xl font-bold text-[#ff6b00] mb-2">
                                     <AnimatedCounter target={feature.stat} />
                                 </div>
                                 <div className="text-xs text-white/40 uppercase tracking-wider">

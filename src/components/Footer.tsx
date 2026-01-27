@@ -44,13 +44,13 @@ export default function Footer() {
                                     <span className="text-[#ff6b00] text-xs tracking-[0.3em] uppercase">Racing</span>
                                 </div>
                             </Link>
-                            <p className="text-white/60 text-sm leading-relaxed mb-8 max-w-sm mx-auto md:mx-0">
+                            <p className="text-white/60 text-sm max-w-sm mx-auto md:mx-0" style={{ lineHeight: '2.0', marginBottom: '48px' }}>
                                 Pushing the limits of speed and engineering excellence. Join us on our journey to racing glory.
                             </p>
 
                             {/* Newsletter */}
                             <div className="max-w-sm mx-auto md:mx-0">
-                                <p className="text-white text-sm font-medium mb-3">Subscribe to our newsletter</p>
+                                <p className="text-white text-sm font-medium" style={{ marginBottom: '16px' }}>Subscribe to our newsletter</p>
                                 <div className="flex flex-col sm:flex-row gap-2">
                                     <input
                                         type="email"
@@ -59,8 +59,8 @@ export default function Footer() {
                                         style={{ padding: '12px 16px' }}
                                     />
                                     <button
-                                        className="bg-[#ff6b00] text-white text-sm font-medium rounded-lg hover:bg-[#ff8533] transition-colors whitespace-nowrap"
-                                        style={{ padding: '12px 24px' }}
+                                        className="bg-[#ff6b00] text-white font-medium rounded-lg hover:bg-[#ff8533] transition-colors flex-shrink-0"
+                                        style={{ padding: '12px 24px', fontSize: '14px', whiteSpace: 'nowrap' }}
                                     >
                                         Subscribe
                                     </button>

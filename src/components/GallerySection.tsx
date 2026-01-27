@@ -17,7 +17,7 @@ const galleryItems = [
 
 export default function GallerySection() {
     return (
-        <section className="w-full py-32 bg-[#0a0a0a] relative overflow-hidden border-t border-white/5">
+        <section className="w-full pt-48 pb-32 bg-[#0a0a0a] relative overflow-hidden">
 
             <div className="max-w-[1600px] mx-auto px-6 lg:px-12 relative z-10">
                 {/* Header */}
@@ -28,7 +28,7 @@ export default function GallerySection() {
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white" style={{ marginBottom: '24px' }}>
                         Racing <span className="text-[#ff6b00]">Moments</span>
                     </h2>
-                    
+
                 </div>
 
                 {/* Masonry Gallery */}

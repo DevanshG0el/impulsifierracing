@@ -17,11 +17,8 @@ export default function CTASection() {
     }, []);
 
     return (
-        <section ref={sectionRef} className="w-full pt-32 bg-[#0a0a0a] relative overflow-hidden border-t border-white/5" style={{ paddingBottom: '70px' }}>
-            {/* Background Gradient */}
-            {/* <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] rounded-full bg-[#ff6b00]/5 blur-3xl" />
-            </div> */}
+        <section ref={sectionRef} className="w-full bg-[#0a0a0a] relative overflow-hidden" style={{ paddingTop: '30px', paddingBottom: '50px' }}>
+
 
             <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center relative z-10">
                 {/* Badge */}
@@ -43,18 +40,18 @@ export default function CTASection() {
                 </p>
 
                 {/* Buttons */}
-                <div className={`flex flex-col sm:flex-row gap-6 justify-center mb-16 transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                <div className={`flex flex-row gap-2 justify-center items-center mb-16 transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                     <Link
                         href="/contact"
-                        className="bg-[#ff6b00] text-white font-semibold rounded-full hover:bg-[#ff8533] transition-all duration-300"
-                        style={{ padding: '8px 16px', fontSize: '13px', whiteSpace: 'nowrap', display: 'inline-block' }}
+                        className="bg-[#ff6b00] text-white font-semibold rounded-full hover:bg-[#ff8533] transition-all duration-300 text-center flex-shrink-0"
+                        style={{ whiteSpace: 'nowrap', padding: '10px 20px', fontSize: '13px' }}
                     >
                         Get In Touch
                     </Link>
                     <Link
                         href="/about"
-                        className="border border-white/30 text-white font-semibold rounded-full hover:bg-white/10 transition-all duration-300"
-                        style={{ padding: '8px 16px', fontSize: '13px', whiteSpace: 'nowrap', display: 'inline-block' }}
+                        className="border border-white/30 text-white font-semibold rounded-full hover:bg-white/10 transition-all duration-300 text-center flex-shrink-0"
+                        style={{ whiteSpace: 'nowrap', padding: '10px 20px', fontSize: '13px' }}
                     >
                         Learn More
                     </Link>

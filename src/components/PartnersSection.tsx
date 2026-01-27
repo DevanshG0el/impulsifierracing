@@ -13,11 +13,11 @@ export default function PartnersSection() {
     ];
 
     return (
-        <section className="w-full py-24 bg-[#0a0a0a] relative overflow-hidden border-t border-white/5">
+        <section className="w-full pt-16 pb-24 bg-[#0a0a0a] relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-6 lg:px-12">
                 {/* Header */}
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white" style={{ marginBottom: '34px' }}>
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white" style={{ marginBottom: '48px' }}>
                         OUR <span className="text-[#ff6b00]">PARTNERS</span>
                     </h2>
                 </div>
