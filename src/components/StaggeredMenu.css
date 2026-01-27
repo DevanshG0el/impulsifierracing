@@ -16,6 +16,32 @@
   overflow: hidden;
 }
 
+.staggered-menu-wrapper.fixed.sm-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sm-header {
+  position: relative;
+  z-index: 10000;
+}
+
+.sm-panel {
+  position: fixed;
+  z-index: 9998;
+}
+
+.sm-toggle {
+  z-index: 10001;
+}
+
 .staggered-menu-header {
   position: absolute;
   top: 0;

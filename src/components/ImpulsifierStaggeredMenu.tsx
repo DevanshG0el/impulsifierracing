@@ -1,29 +1,25 @@
 "use client";
 
-import React from 'react';
-import Link from 'next/link';
-import Logo from './Logo';
-import StaggeredMenu from './StaggeredMenu';
+import React from "react";
+import Link from "next/link";
+import Logo from "./Logo";
+import StaggeredMenu from "./StaggeredMenu";
 
-// Custom logo component for StaggeredMenu
-const CustomLogo = () => {
-    return (
-        <Link href="/" className="inline-flex items-center gap-3 group">
-            <Logo className="w-10 h-10" />
-            <div className="flex flex-col">
-                <span className="text-white font-bold text-xl tracking-wider">IMPULSIFIER</span>
-                <span className="text-[#ff6b00] text-xs tracking-[0.3em] uppercase">Racing</span>
-            </div>
-        </Link>
-    );
-};
+interface NavLink {
+    name: string;
+    href: string;
+}
 
-export default function ImpulsifierStaggeredMenu({ navLinks }: { navLinks: Array<{ name: string; href: string }> }) {
+interface ImpulsifierStaggeredMenuProps {
+    navLinks: NavLink[];
+}
+
+const ImpulsifierStaggeredMenu: React.FC<ImpulsifierStaggeredMenuProps> = ({ navLinks }) => {
     // Prepare menu items for StaggeredMenu
-    const menuItems = navLinks.map(link => ({
+    const menuItems = navLinks.map((link) => ({
         label: link.name,
         link: link.href,
-        ariaLabel: `Navigate to ${link.name}`
+        ariaLabel: `Navigate to ${link.name}`,
     }));
 
     // Social media links
@@ -31,47 +27,72 @@ export default function ImpulsifierStaggeredMenu({ navLinks }: { navLinks: Array
         { label: "Instagram", link: "https://instagram.com/impulsifierracing" },
         { label: "Twitter", link: "https://twitter.com/impulsifierracing" },
         { label: "YouTube", link: "https://youtube.com/@impulsifierracing" },
-        { label: "LinkedIn", link: "https://linkedin.com/company/impulsifierracing" }
+        { label: "LinkedIn", link: "https://linkedin.com/company/impulsifierracing" },
     ];
 
-    // Create a wrapper to inject custom logo
+    // Custom logo component
+    const CustomLogo = () => {
+        return (
+            <Link href="/" className="inline-flex items-center gap-3 group">
+                <Logo className="w-10 h-10" />
+                <div className="flex flex-col">
+                    <span className="text-white font-bold text-xl tracking-wider">IMPULSIFIER</span>
+                    <span className="text-[#ff6b00] text-xs tracking-[0.3em] uppercase">Racing</span>
+                </div>
+            </Link>
+        );
+    };
+
+    // Create a wrapper with solid background
     const MenuWithCustomLogo = () => {
         const StaggeredMenuComponent = StaggeredMenu as any;
 
         return (
-            <div className="staggered-menu-custom">
-                <StaggeredMenuComponent
-                    position="right"
-                    colors={['#0a0a0a', '#1a1a1a', '#ff6b00']}
-                    items={menuItems}
-                    socialItems={socialItems}
-                    displaySocials={true}
-                    displayItemNumbering={true}
-                    logoUrl="" // We'll override this with custom logo
-                    menuButtonColor="#ffffff"
-                    openMenuButtonColor="#ff6b00"
-                    accentColor="#ff6b00"
-                    changeMenuColorOnOpen={true}
-                    isFixed={true}
-                    closeOnClickAway={true}
-                />
-                <style jsx global>{`
-          .staggered-menu-custom .sm-logo {
-            all: unset;
-            display: flex;
-            align-items: center;
-            pointer-events: auto;
-          }
-          .staggered-menu-custom .sm-logo-img {
-            display: none;
-          }
-        `}</style>
-                <div className="fixed top-8 left-8 z-[10000] pointer-events-auto">
-                    <CustomLogo />
+            <>
+                {/* Solid Navigation Bar */}
+                <div className="fixed top-0 left-0 right-0 z-[9998] bg-[#0a0a0a]/95 backdrop-blur-md border-b border-white/10">
+                    <div className="max-w-[1600px] mx-auto px-6 lg:px-12 xl:px-20 py-4">
+                        {/* Empty container for spacing - actual content rendered by StaggeredMenu */}
+                    </div>
                 </div>
-            </div>
+
+                {/* StaggeredMenu Component */}
+                <div className="staggered-menu-custom">
+                    <StaggeredMenuComponent
+                        position="right"
+                        colors={["#0a0a0a", "#1a1a1a", "#ff6b00"]}
+                        items={menuItems}
+                        socialItems={socialItems}
+                        displaySocials={true}
+                        displayItemNumbering={true}
+                        logoUrl=""
+                        menuButtonColor="#ffffff"
+                        openMenuButtonColor="#ff6b00"
+                        accentColor="#ff6b00"
+                        changeMenuColorOnOpen={true}
+                        isFixed={true}
+                        closeOnClickAway={true}
+                    />
+                    <style jsx global>{`
+            .staggered-menu-custom .sm-logo {
+              all: unset;
+              display: flex;
+              align-items: center;
+              pointer-events: auto;
+            }
+            .staggered-menu-custom .sm-logo-img {
+              display: none;
+            }
+          `}</style>
+                    <div className="fixed top-4 left-6 lg:left-12 xl:left-20 z-[10000] pointer-events-auto">
+                        <CustomLogo />
+                    </div>
+                </div>
+            </>
         );
     };
 
     return <MenuWithCustomLogo />;
-}
+};
+
+export default ImpulsifierStaggeredMenu;

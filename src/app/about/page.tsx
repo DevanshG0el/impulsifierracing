@@ -25,9 +25,9 @@ export default function AboutPage() {
   }, []);
 
   return (
-    <div className="bg-[#0a0a0a]">
+    <div className="min-h-screen bg-[#0a0a0a]">
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center overflow-hidden bg-[#0a0a0a] border-b border-white/5">
+      <section className="relative py-32 pt-40 bg-gradient-to-b from-[#0a0a0a] via-[#0a0a0a] to-[#0a0a0a] border-b border-white/5">
         {/* Background Gradient */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full bg-[#ff6b00]/10 blur-3xl" />
