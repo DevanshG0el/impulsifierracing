@@ -42,8 +42,7 @@ export default function AboutPage() {
               About <span className="text-[#ff6b00]">Impulsifier</span>
             </h1>
             <p className="text-white/60 text-lg leading-relaxed" style={{ marginBottom: '48px' }}>
-              Impulsifier Racing is more than a team – we're a family united by our passion for speed,
-              precision engineering, and the relentless pursuit of racing excellence.
+              Impulsifier Racing is more than a team—it’s a family united by passion for speed, precision engineering, and the relentless pursuit of racing excellence.
             </p>
           </div>
         </div>
@@ -219,4 +218,3 @@ export default function AboutPage() {
     </div>
   );
 }
-
