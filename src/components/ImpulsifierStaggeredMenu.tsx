@@ -43,56 +43,38 @@ const ImpulsifierStaggeredMenu: React.FC<ImpulsifierStaggeredMenuProps> = ({ nav
         );
     };
 
-    // Create a wrapper with solid background
-    const MenuWithCustomLogo = () => {
-        const StaggeredMenuComponent = StaggeredMenu as any;
-
-        return (
-            <>
-                {/* Solid Navigation Bar */}
-                <div className="fixed top-0 left-0 right-0 z-[9998] bg-[#0a0a0a]/95 backdrop-blur-md border-b border-white/10">
-                    <div className="max-w-[1600px] mx-auto px-6 lg:px-12 xl:px-20 py-4">
-                        {/* Empty container for spacing - actual content rendered by StaggeredMenu */}
-                    </div>
+    return (
+        <>
+            {/* Solid Navigation Bar */}
+            <div className="fixed top-0 left-0 right-0 z-[9998] bg-[#0a0a0a]/95 backdrop-blur-md border-b border-white/10">
+                <div className="max-w-[1600px] mx-auto px-6 lg:px-12 xl:px-20 py-4">
+                    {/* Empty container for spacing - actual content rendered by StaggeredMenu */}
                 </div>
+            </div>
 
-                {/* StaggeredMenu Component */}
-                <div className="staggered-menu-custom" suppressHydrationWarning>
-                    <StaggeredMenuComponent
-                        position="right"
-                        colors={["#0a0a0a", "#1a1a1a", "#ff6b00"]}
-                        items={menuItems}
-                        socialItems={socialItems}
-                        displaySocials={true}
-                        displayItemNumbering={true}
-                        logoUrl=""
-                        menuButtonColor="#ffffff"
-                        openMenuButtonColor="#ff6b00"
-                        accentColor="#ff6b00"
-                        changeMenuColorOnOpen={true}
-                        isFixed={true}
-                        closeOnClickAway={true}
-                    />
-                    <style jsx global>{`
-            .staggered-menu-custom .sm-logo {
-              all: unset;
-              display: flex;
-              align-items: center;
-              pointer-events: auto;
-            }
-            .staggered-menu-custom .sm-logo-img {
-              display: none;
-            }
-          `}</style>
-                    <div className="fixed top-4 left-6 lg:left-12 xl:left-20 z-[10000] pointer-events-auto">
-                        <CustomLogo />
-                    </div>
+            {/* StaggeredMenu Component */}
+            <div className="staggered-menu-custom" suppressHydrationWarning>
+                <StaggeredMenu
+                    position="right"
+                    colors={["#0a0a0a", "#1a1a1a", "#ff6b00"]}
+                    items={menuItems}
+                    socialItems={socialItems}
+                    displaySocials={true}
+                    displayItemNumbering={true}
+                    logoUrl=""
+                    menuButtonColor="#ffffff"
+                    openMenuButtonColor="#ff6b00"
+                    accentColor="#ff6b00"
+                    changeMenuColorOnOpen={true}
+                    isFixed={true}
+                    closeOnClickAway={true}
+                />
+                <div className="fixed top-4 left-6 lg:left-12 xl:left-20 z-[10000] pointer-events-auto">
+                    <CustomLogo />
                 </div>
-            </>
-        );
-    };
-
-    return <MenuWithCustomLogo />;
+            </div>
+        </>
+    );
 };
 
 export default ImpulsifierStaggeredMenu;

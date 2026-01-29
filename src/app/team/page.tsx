@@ -108,7 +108,7 @@ export default function TeamPage() {
       </section>
 
       {/* Team Grid */}
-      <section ref={sectionRef} className="py-32 bg-[#0a0a0a] border-b border-white/5">
+      <section ref={sectionRef} className="py-32 bg-[#0a0a0a] ">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {teamMembers.map((member, index) => (

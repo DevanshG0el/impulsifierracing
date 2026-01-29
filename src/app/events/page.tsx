@@ -4,57 +4,16 @@ import Link from "next/link";
 
 const upcomingEvents = [
   {
-    date: "Mar 15, 2026",
-    title: "Grand Prix Opening Round",
-    location: "Monaco Circuit",
+    date: "June 2026",
+    title: "SAEINDIA ABAJA",
+    location: "TBA",
     type: "Race",
     status: "Upcoming"
-  },
-  {
-    date: "Apr 02, 2026",
-    title: "Spring Championship",
-    location: "Silverstone, UK",
-    type: "Race",
-    status: "Upcoming"
-  },
-  {
-    date: "Apr 20, 2026",
-    title: "Tech Showcase Event",
-    location: "Munich, Germany",
-    type: "Exhibition",
-    status: "Upcoming"
-  },
-  {
-    date: "May 10, 2026",
-    title: "Endurance Race",
-    location: "Le Mans, France",
-    type: "Race",
-    status: "Upcoming"
-  },
+  }
 ];
 
 const pastEvents = [
-  {
-    date: "Dec 10, 2025",
-    title: "Season Finale",
-    location: "Abu Dhabi",
-    type: "Race",
-    result: "1st Place"
-  },
-  {
-    date: "Nov 25, 2025",
-    title: "Night Race Championship",
-    location: "Singapore",
-    type: "Race",
-    result: "2nd Place"
-  },
-  {
-    date: "Nov 05, 2025",
-    title: "American Grand Prix",
-    location: "Austin, Texas",
-    type: "Race",
-    result: "1st Place"
-  },
+
 ];
 
 export default function EventsPage() {

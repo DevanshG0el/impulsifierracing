@@ -73,6 +73,18 @@
   object-fit: contain;
 }
 
+/* Custom menu styling - hide default logo when using custom logo */
+.staggered-menu-custom .sm-logo {
+  all: unset;
+  display: flex;
+  align-items: center;
+  pointer-events: auto;
+}
+
+.staggered-menu-custom .sm-logo-img {
+  display: none;
+}
+
 .sm-toggle {
   position: relative;
   display: inline-flex;
@@ -195,7 +207,6 @@
   right: 0;
   height: 100%;
   width: 100%;
-  transform: translateX(0);
 }
 
 .sm-panel-inner {
