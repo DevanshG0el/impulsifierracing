@@ -1,16 +1,23 @@
 "use client";
 
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, ReactNode } from 'react';
 import { gsap } from 'gsap';
 import '../components/MagicBento.css';
 
 const GLOW_COLOR = '255, 107, 0'; // #ff6b00 in RGB
 
-const ParticleCard = ({ children, icon, title, description }) => {
-    const cardRef = useRef(null);
-    const particlesRef = useRef([]);
+interface ParticleCardProps {
+    children?: ReactNode;
+    icon: string;
+    title: string;
+    description: string;
+}
 
-    const createParticle = (x, y) => {
+const ParticleCard = ({ children, icon, title, description }: ParticleCardProps) => {
+    const cardRef = useRef<HTMLDivElement>(null);
+    const particlesRef = useRef<HTMLDivElement[]>([]);
+
+    const createParticle = (x: number, y: number) => {
         const el = document.createElement('div');
         el.className = 'particle';
         el.style.cssText = `
@@ -94,7 +101,7 @@ const ParticleCard = ({ children, icon, title, description }) => {
                 '--glow-color': GLOW_COLOR,
                 position: 'relative',
                 overflow: 'hidden'
-            }}
+            } as React.CSSProperties}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
@@ -113,8 +120,12 @@ const ParticleCard = ({ children, icon, title, description }) => {
     );
 };
 
-const GlobalSpotlight = ({ gridRef }) => {
-    const spotlightRef = useRef(null);
+interface GlobalSpotlightProps {
+    gridRef: React.RefObject<HTMLDivElement | null>;
+}
+
+const GlobalSpotlight = ({ gridRef }: GlobalSpotlightProps) => {
+    const spotlightRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         if (!gridRef?.current) return;
@@ -143,7 +154,7 @@ const GlobalSpotlight = ({ gridRef }) => {
         document.body.appendChild(spotlight);
         spotlightRef.current = spotlight;
 
-        const handleMouseMove = (e) => {
+        const handleMouseMove = (e: MouseEvent) => {
             if (!spotlightRef.current || !gridRef.current) return;
 
             const section = gridRef.current.closest('.bento-section');
@@ -164,8 +175,9 @@ const GlobalSpotlight = ({ gridRef }) => {
             const cards = gridRef.current.querySelectorAll('.magic-bento-card');
             let minDistance = Infinity;
 
-            cards.forEach(card => {
-                const cardRect = card.getBoundingClientRect();
+            cards.forEach((card) => {
+                const htmlCard = card as HTMLElement;
+                const cardRect = htmlCard.getBoundingClientRect();
                 const centerX = cardRect.left + cardRect.width / 2;
                 const centerY = cardRect.top + cardRect.height / 2;
                 const distance = Math.hypot(e.clientX - centerX, e.clientY - centerY);
@@ -176,9 +188,9 @@ const GlobalSpotlight = ({ gridRef }) => {
                 const relativeY = ((e.clientY - cardRect.top) / cardRect.height) * 100;
                 const glowIntensity = distance < 300 ? 1 - (distance / 300) : 0;
 
-                card.style.setProperty('--glow-x', `${relativeX}%`);
-                card.style.setProperty('--glow-y', `${relativeY}%`);
-                card.style.setProperty('--glow-intensity', glowIntensity.toString());
+                htmlCard.style.setProperty('--glow-x', `${relativeX}%`);
+                htmlCard.style.setProperty('--glow-y', `${relativeY}%`);
+                htmlCard.style.setProperty('--glow-intensity', glowIntensity.toString());
             });
 
             gsap.to(spotlightRef.current, {
@@ -201,8 +213,18 @@ const GlobalSpotlight = ({ gridRef }) => {
     return null;
 };
 
-export default function CoreValuesGrid({ values }) {
-    const gridRef = useRef(null);
+interface Value {
+    icon: string;
+    title: string;
+    description: string;
+}
+
+interface CoreValuesGridProps {
+    values: Value[];
+}
+
+export default function CoreValuesGrid({ values }: CoreValuesGridProps) {
+    const gridRef = useRef<HTMLDivElement>(null);
 
     return (
         <>

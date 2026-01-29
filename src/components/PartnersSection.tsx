@@ -14,7 +14,7 @@ export default function PartnersSection() {
 
     return (
         <section className="w-full pt-16 pb-24 bg-[#0a0a0a] relative overflow-hidden">
-            <div className="max-w-7xl mx-auto px-6 lg:px-12">
+            <div className="max-w-7xl mx-auto px-8 sm:px-10 lg:px-12">
                 {/* Header */}
                 <div className="text-center mb-16">
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white" style={{ marginBottom: '48px', marginTop: '48px' }}>

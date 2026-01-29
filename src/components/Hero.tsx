@@ -53,7 +53,7 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-20 w-full max-w-7xl mx-auto px-6 lg:px-12 py-32">
+      <div className="relative z-20 w-full max-w-7xl mx-auto px-8 sm:px-10 lg:px-12 py-32">
         <div className="max-w-2xl">
           {/* Main Heading with TextType Animation */}
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">

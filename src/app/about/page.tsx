@@ -34,7 +34,7 @@ export default function AboutPage() {
           <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full bg-[#ff6b00]/10 blur-3xl" />
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-32 relative z-10">
+        <div className="max-w-7xl mx-auto px-8 sm:px-10 lg:px-12 py-32 relative z-10">
           <div className="max-w-3xl">
             <span className="text-[#ff6b00] text-sm font-medium tracking-wider uppercase block" style={{ marginBottom: '24px' }}>
               Who We Are
@@ -51,7 +51,7 @@ export default function AboutPage() {
 
       {/* Story Section */}
       <section ref={sectionRef} className="py-32 bg-[#0a0a0a]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        <div className="max-w-7xl mx-auto px-8 sm:px-10 lg:px-12">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <span className="text-[#ff6b00] text-sm font-medium tracking-wider uppercase block" style={{ marginBottom: '24px', marginTop: '98px' }}>
@@ -188,7 +188,7 @@ export default function AboutPage() {
 
       {/* CTA */}
       <section className="py-24 bg-[#0a0a0a]">
-        <div className="max-w-4xl mx-auto px-6 text-center">
+        <div className="max-w-4xl mx-auto px-8 sm:px-10 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white" style={{ marginBottom: '24px' }}>
             Want to be part of our <span className="text-[#ff6b00]">story</span>?
           </h2>

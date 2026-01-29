@@ -47,7 +47,7 @@ const ImpulsifierStaggeredMenu: React.FC<ImpulsifierStaggeredMenuProps> = ({ nav
         <>
             {/* Solid Navigation Bar */}
             <div className="fixed top-0 left-0 right-0 z-[9998] bg-[#0a0a0a]/95 backdrop-blur-md border-b border-white/10">
-                <div className="max-w-[1600px] mx-auto px-6 lg:px-12 xl:px-20 py-4">
+                <div className="max-w-[1600px] mx-auto px-8 sm:px-10 lg:px-12 xl:px-20 py-4">
                     {/* Empty container for spacing - actual content rendered by StaggeredMenu */}
                 </div>
             </div>

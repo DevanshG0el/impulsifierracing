@@ -10,11 +10,11 @@ export default function TechnologyPage() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-[#ff6b00]/10 blur-3xl" />
         </div>
 
-        <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center relative z-10">
-    
+        <div className="max-w-4xl mx-auto px-8 sm:px-10 lg:px-12 text-center relative z-10">
+
 
           {/* Title */}
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6"style={{ marginBottom: '48px', marginTop: '58px' }}>
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6" style={{ marginBottom: '48px', marginTop: '58px' }}>
             Coming <span className="text-[#ff6b00]">Soon</span>
           </h1>
 

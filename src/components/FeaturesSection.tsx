@@ -44,7 +44,7 @@ export default function FeaturesSection() {
             {/* Hyperspeed Background Animation */}
             <HyperspeedWrapper opacity={0.3} />
 
-            <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+            <div className="max-w-7xl mx-auto px-8 sm:px-10 lg:px-12 relative z-10">
                 {/* Section Header */}
                 <div className="text-center mb-16 md:mb-20 lg:mb-24">
                     <span className="text-[#ff6b00] text-sm font-medium tracking-wider uppercase mb-4 block">

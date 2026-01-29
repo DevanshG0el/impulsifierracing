@@ -29,7 +29,7 @@ export default function GalleryPage() {
           <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full bg-[#ff6b00]/10 blur-3xl" />
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-32 relative z-10">
+        <div className="max-w-7xl mx-auto px-8 sm:px-10 lg:px-12 py-32 relative z-10">
           <div className="max-w-3xl">
             <span className="text-[#ff6b00] text-sm font-medium tracking-wider uppercase block" style={{ marginBottom: '24px' }}>
               Moments Captured
@@ -46,7 +46,7 @@ export default function GalleryPage() {
 
       {/* Gallery Grid */}
       <section className="py-16 bg-[#0a0a0a]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        <div className="max-w-7xl mx-auto px-8 sm:px-10 lg:px-12">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 auto-rows-[250px]">
             {galleryItems.map((item) => (
               <div

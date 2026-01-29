@@ -20,7 +20,7 @@ export default function CTASection() {
         <section ref={sectionRef} className="w-full bg-[#0a0a0a] relative overflow-hidden" style={{ paddingTop: '20px', paddingBottom: '50px' }}>
 
 
-            <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center relative z-10">
+            <div className="max-w-4xl mx-auto px-8 sm:px-10 lg:px-12 text-center relative z-10">
                 {/* Badge */}
                 <div className={`mb-8 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                     <span className="text-[#ff6b00] text-sm font-medium tracking-wider uppercase">

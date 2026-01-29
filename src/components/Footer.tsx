@@ -31,7 +31,7 @@ export default function Footer() {
     return (
         <footer className="w-full bg-[#0a0a0a] border-t border-white/5">
             {/* Main Footer Content */}
-            <div className="w-full px-6 lg:px-12 xl:px-20 py-12 md:py-20">
+            <div className="w-full px-8 sm:px-10 lg:px-12 xl:px-20 py-12 md:py-20">
                 <div className="max-w-[1600px] mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10 md:gap-12 lg:gap-8">
 
@@ -151,7 +151,7 @@ export default function Footer() {
 
             {/* Bottom Bar - Full Width */}
             <div className="w-full border-t border-white/5">
-                <div className="w-full px-6 lg:px-12 xl:px-20 py-6">
+                <div className="w-full px-8 sm:px-10 lg:px-12 xl:px-20 py-6">
                     <div className="max-w-[1600px] mx-auto flex flex-col md:flex-row justify-center items-center gap-4">
                         <p className="text-white/40 text-sm text-center">
                             © {new Date().getFullYear()} Impulsifier Racing. All rights reserved.

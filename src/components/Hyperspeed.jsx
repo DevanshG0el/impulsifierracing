@@ -6,8 +6,8 @@ import './Hyperspeed.css';
 
 const Hyperspeed = ({
   effectOptions = {
-    onSpeedUp: () => {},
-    onSlowDown: () => {},
+    onSpeedUp: () => { },
+    onSlowDown: () => { },
     distortion: 'turbulentDistortion',
     length: 400,
     roadWidth: 10,
@@ -109,11 +109,11 @@ const Hyperspeed = ({
           let uAmp = mountainUniforms.uAmp.value;
           let distortion = new THREE.Vector3(
             Math.cos(progress * Math.PI * uFreq.x + time) * uAmp.x -
-              Math.cos(movementProgressFix * Math.PI * uFreq.x + time) * uAmp.x,
+            Math.cos(movementProgressFix * Math.PI * uFreq.x + time) * uAmp.x,
             nsin(progress * Math.PI * uFreq.y + time) * uAmp.y -
-              nsin(movementProgressFix * Math.PI * uFreq.y + time) * uAmp.y,
+            nsin(movementProgressFix * Math.PI * uFreq.y + time) * uAmp.y,
             nsin(progress * Math.PI * uFreq.z + time) * uAmp.z -
-              nsin(movementProgressFix * Math.PI * uFreq.z + time) * uAmp.z
+            nsin(movementProgressFix * Math.PI * uFreq.z + time) * uAmp.z
           );
           let lookAtAmp = new THREE.Vector3(2, 2, 2);
           let lookAtOffset = new THREE.Vector3(0, 0, -5);
@@ -141,9 +141,9 @@ const Hyperspeed = ({
           let uAmp = xyUniforms.uAmp.value;
           let distortion = new THREE.Vector3(
             Math.cos(progress * Math.PI * uFreq.x + time) * uAmp.x -
-              Math.cos(movementProgressFix * Math.PI * uFreq.x + time) * uAmp.x,
+            Math.cos(movementProgressFix * Math.PI * uFreq.x + time) * uAmp.x,
             Math.sin(progress * Math.PI * uFreq.y + time + Math.PI / 2) * uAmp.y -
-              Math.sin(movementProgressFix * Math.PI * uFreq.y + time + Math.PI / 2) * uAmp.y,
+            Math.sin(movementProgressFix * Math.PI * uFreq.y + time + Math.PI / 2) * uAmp.y,
             0
           );
           let lookAtAmp = new THREE.Vector3(2, 0.4, 1);
@@ -172,9 +172,9 @@ const Hyperspeed = ({
           let uAmp = LongRaceUniforms.uAmp.value;
           let distortion = new THREE.Vector3(
             Math.sin(progress * Math.PI * uFreq.x + time) * uAmp.x -
-              Math.sin(camProgress * Math.PI * uFreq.x + time) * uAmp.x,
+            Math.sin(camProgress * Math.PI * uFreq.x + time) * uAmp.x,
             Math.sin(progress * Math.PI * uFreq.y + time) * uAmp.y -
-              Math.sin(camProgress * Math.PI * uFreq.y + time) * uAmp.y,
+            Math.sin(camProgress * Math.PI * uFreq.y + time) * uAmp.y,
             0
           );
           let lookAtAmp = new THREE.Vector3(1, 1, 0);
@@ -350,12 +350,42 @@ const Hyperspeed = ({
           };
         }
         this.container = container;
-        this.renderer = new THREE.WebGLRenderer({
-          antialias: false,
-          alpha: true
-        });
+        this.disposed = false;
+        this.contextLost = false;
+
+        // Try to create WebGL renderer with error handling
+        try {
+          this.renderer = new THREE.WebGLRenderer({
+            antialias: false,
+            alpha: true,
+            powerPreference: 'high-performance',
+            failIfMajorPerformanceCaveat: false
+          });
+
+          // Add context loss handlers
+          const canvas = this.renderer.domElement;
+          canvas.addEventListener('webglcontextlost', (event) => {
+            event.preventDefault();
+            this.contextLost = true;
+            console.warn('WebGL context lost');
+          }, false);
+
+          canvas.addEventListener('webglcontextrestored', () => {
+            this.contextLost = false;
+            console.log('WebGL context restored');
+          }, false);
+
+        } catch (error) {
+          console.error('Failed to create WebGL renderer:', error);
+          // Create a fallback div instead of crashing
+          this.renderer = null;
+          return;
+        }
+
+        if (!this.renderer) return;
+
         this.renderer.setSize(container.offsetWidth, container.offsetHeight, false);
-        this.renderer.setPixelRatio(window.devicePixelRatio);
+        this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); // Limit pixel ratio
         this.composer = new EffectComposer(this.renderer);
         container.append(this.renderer.domElement);
 
@@ -380,7 +410,6 @@ const Hyperspeed = ({
         };
         this.clock = new THREE.Clock();
         this.assets = {};
-        this.disposed = false;
 
         this.road = new Road(this, options);
         this.leftCarLights = new CarLights(
@@ -409,12 +438,13 @@ const Hyperspeed = ({
         this.setSize = this.setSize.bind(this);
         this.onMouseDown = this.onMouseDown.bind(this);
         this.onMouseUp = this.onMouseUp.bind(this);
+        this.onWindowResize = this.onWindowResize.bind(this);
 
         this.onTouchStart = this.onTouchStart.bind(this);
         this.onTouchEnd = this.onTouchEnd.bind(this);
         this.onContextMenu = this.onContextMenu.bind(this);
 
-        window.addEventListener('resize', this.onWindowResize.bind(this));
+        window.addEventListener('resize', this.onWindowResize);
       }
 
       onWindowResize() {
@@ -480,6 +510,11 @@ const Hyperspeed = ({
       }
 
       init() {
+        if (!this.renderer) {
+          console.warn('Renderer not available, skipping initialization');
+          return;
+        }
+
         this.initPasses();
         const options = this.options;
         this.road.init();
@@ -579,27 +614,61 @@ const Hyperspeed = ({
       dispose() {
         this.disposed = true;
 
-        if (this.renderer) {
-          this.renderer.dispose();
-        }
-        if (this.composer) {
-          this.composer.dispose();
-        }
-        if (this.scene) {
-          this.scene.clear();
+        // Stop animation loop first
+        if (this.animationFrameId) {
+          cancelAnimationFrame(this.animationFrameId);
         }
 
-        window.removeEventListener('resize', this.onWindowResize.bind(this));
+        // Clean up event listeners
+        window.removeEventListener('resize', this.onWindowResize);
         if (this.container) {
           this.container.removeEventListener('mousedown', this.onMouseDown);
           this.container.removeEventListener('mouseup', this.onMouseUp);
           this.container.removeEventListener('mouseout', this.onMouseUp);
-
           this.container.removeEventListener('touchstart', this.onTouchStart);
           this.container.removeEventListener('touchend', this.onTouchEnd);
           this.container.removeEventListener('touchcancel', this.onTouchEnd);
           this.container.removeEventListener('contextmenu', this.onContextMenu);
         }
+
+        // Dispose Three.js objects
+        if (this.scene) {
+          this.scene.traverse((object) => {
+            if (object.geometry) {
+              object.geometry.dispose();
+            }
+            if (object.material) {
+              if (Array.isArray(object.material)) {
+                object.material.forEach(material => material.dispose());
+              } else {
+                object.material.dispose();
+              }
+            }
+          });
+          this.scene.clear();
+        }
+
+        // Dispose composer and renderer
+        if (this.composer) {
+          this.composer.dispose();
+        }
+
+        if (this.renderer) {
+          const canvas = this.renderer.domElement;
+          this.renderer.dispose();
+          this.renderer.forceContextLoss();
+
+          // Remove canvas from DOM
+          if (canvas && canvas.parentNode) {
+            canvas.parentNode.removeChild(canvas);
+          }
+        }
+
+        // Clear references
+        this.renderer = null;
+        this.composer = null;
+        this.scene = null;
+        this.camera = null;
       }
 
       setSize(width, height, updateStyles) {
@@ -607,7 +676,8 @@ const Hyperspeed = ({
       }
 
       tick() {
-        if (this.disposed || !this) return;
+        if (this.disposed || !this.renderer || this.contextLost) return;
+
         if (resizeRendererToDisplaySize(this.renderer, this.setSize)) {
           const canvas = this.renderer.domElement;
           this.camera.aspect = canvas.clientWidth / canvas.clientHeight;
@@ -616,7 +686,7 @@ const Hyperspeed = ({
         const delta = this.clock.getDelta();
         this.render(delta);
         this.update(delta);
-        requestAnimationFrame(this.tick);
+        this.animationFrameId = requestAnimationFrame(this.tick);
       }
     }
 

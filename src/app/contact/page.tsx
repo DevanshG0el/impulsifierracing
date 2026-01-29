@@ -27,7 +27,7 @@ export default function ContactPage() {
             <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full bg-[#ff6b00]/10 blur-3xl" />
           </div>
 
-          <div className="max-w-7xl mx-auto px-6 lg:px-12 py-32 relative z-10">
+          <div className="max-w-7xl mx-auto px-8 sm:px-10 lg:px-12 py-32 relative z-10">
             <div className="max-w-3xl">
               <span className="text-[#ff6b00] text-sm font-medium tracking-wider uppercase block" style={{ marginBottom: '24px' }}>
                 Contact Us
@@ -44,7 +44,7 @@ export default function ContactPage() {
 
         {/* Contact Info */}
         <section className="py-32 pb-48 bg-[#0a0a0a]">
-          <div className="max-w-4xl mx-auto px-6 lg:px-12">
+          <div className="max-w-4xl mx-auto px-8 sm:px-10 lg:px-12">
             <div className="max-w-2xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-white text-center" style={{ marginBottom: '48px' }}>
                 Contact <span className="text-[#ff6b00]">Information</span>
