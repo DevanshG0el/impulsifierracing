@@ -21,11 +21,11 @@ export default function GallerySection() {
 
             <div className="max-w-[1600px] mx-auto px-6 lg:px-12 relative z-10">
                 {/* Header */}
-                <div className="text-center" style={{ marginBottom: '48px' }}>
+                <div className="text-center" style={{ marginBottom: '48px', marginTop: '58px' }}>
                     <span className="text-[#ff6b00] text-sm font-medium tracking-wider uppercase mb-4 block">
                         Our Gallery
                     </span>
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white" style={{ marginBottom: '24px' }}>
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white" style={{ marginBottom: '24px'}}>
                         Racing <span className="text-[#ff6b00]">Moments</span>
                     </h2>
 

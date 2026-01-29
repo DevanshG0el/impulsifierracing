@@ -17,7 +17,7 @@ export default function PartnersSection() {
             <div className="max-w-7xl mx-auto px-6 lg:px-12">
                 {/* Header */}
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white" style={{ marginBottom: '48px' }}>
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white" style={{ marginBottom: '48px', marginTop: '48px' }}>
                         OUR <span className="text-[#ff6b00]">PARTNERS</span>
                     </h2>
                 </div>

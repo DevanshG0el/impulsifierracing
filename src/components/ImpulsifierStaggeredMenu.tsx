@@ -57,7 +57,7 @@ const ImpulsifierStaggeredMenu: React.FC<ImpulsifierStaggeredMenuProps> = ({ nav
                 </div>
 
                 {/* StaggeredMenu Component */}
-                <div className="staggered-menu-custom">
+                <div className="staggered-menu-custom" suppressHydrationWarning>
                     <StaggeredMenuComponent
                         position="right"
                         colors={["#0a0a0a", "#1a1a1a", "#ff6b00"]}

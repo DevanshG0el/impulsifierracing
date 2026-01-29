@@ -17,7 +17,7 @@ export default function CTASection() {
     }, []);
 
     return (
-        <section ref={sectionRef} className="w-full bg-[#0a0a0a] relative overflow-hidden" style={{ paddingTop: '30px', paddingBottom: '50px' }}>
+        <section ref={sectionRef} className="w-full bg-[#0a0a0a] relative overflow-hidden" style={{ paddingTop: '20px', paddingBottom: '50px' }}>
 
 
             <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center relative z-10">
