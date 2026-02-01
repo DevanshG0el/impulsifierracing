@@ -8,21 +8,21 @@ const teamMembers = [
     name: "Shantanu Anantwar ",
     role: "Software Lead",
     bio: "Working on vehicle path planning, control logic, sensor interfacing and simulations.",
-    image: "/team/driver-1.jpg",
+    image: "/shantanu_anantwar_pfp - Shantanu.jpg",
     social: { twitter: "#", instagram: "#" }
   },
   {
     name: "Shloak Nioding",
     role: "Chief Engineer",
     bio: "Computer science undergrad working at intersection of machine learning and robotics",
-    image: "/team/engineer-1.jpg",
+    image: "/Shloak_Nioding_pfp - CSE_C2_34_Shloak Nioding.jpg",
     social: { twitter: "#", linkedin: "#" }
   },
   {
     name: " Pranil Bankar",
     role: "Software Engineer",
     bio: ".",
-    image: "/team/strategist-1.jpg",
+    image: "/Pranil_Bankar_pfp - Pranil Bankar.jpeg",
     social: { twitter: "#", linkedin: "#" }
   },
   {
@@ -36,42 +36,42 @@ const teamMembers = [
     name: "Sachin Mardikar",
     role: "Jr.Software Engineer",
     bio: "A curious engineer who enjoys building reliable autonomous systems and solving real-world problems through practical AI.",
-    image: "/team/driver-2.jpg",
+    image: "/Sachin_Mardikar_pfp - Sachin Mardikar.jpeg",
     social: { twitter: "#", instagram: "#" }
   },
   {
     name: "Ayush khandwe",
     role: "Electronics Engineer",
     bio: "Responsible for the electrical and electronics domain of the autonomous A-Baja vehicle, focusing on power distribution and integration.",
-    image: "/team/analyst-1.jpg",
+    image: "/Ayush_Khandwe_pfp - Dangerous Boi.jpg",
     social: { twitter: "#", linkedin: "#" }
   },
   {
     name: "Govind Dhengare",
     role: "Electronics Engineer",
     bio: "Handling electronics and electrical architecture for Steer-By-Wire and Brake-By-Wire, ensuring closed loop control and safe operation..",
-    image: "/team/engineer-2.jpg",
+    image: "/Govind_Dhengare_pfp - Govind Dhengare.jpg",
     social: { linkedin: "#" }
   },
   {
     name: "Jigisha Mandavkar",
     role: "Creative Media",
     bio: "Creative media enthusiast crafting impactful visuals and stories for Impulsifier's autonomous vehicle team.",
-    image: "/team/manager-1.jpg",
+    image: "/Jigisha_Mandavksr_pfp - Jigisha.jpg",
     social: { twitter: "#", linkedin: "#" }
   },
   {
     name: "Pradaksh Sawai",
     role: "AI/ML Engineer",
     bio: "I design autonomous intelligence, teaching machines to perceive the road, reason in motion, and drive the future!",
-    image: "/team/manager-2.jpg",
+    image: "/pradaksh_sawai_pfp - Pradaksh Sawai.jpeg",
     social: { twitter: "#", linkedin: "#" }
   },
   {
     name: "Tamanna Sura",
     role: "Designer",
     bio: "An ambitious and brilliant mind fueled by passion, discipline, and vision, committed to pushing boundaries and achieving excellence in racing.",
-    image: "/team/manager-3.jpg",
+    image: "/Tamanna_Sura_photo - Tamanna Sura.jpeg",
     social: { twitter: "#", linkedin: "#" }
   },
 ];
