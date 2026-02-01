@@ -5,59 +5,73 @@ import { useEffect, useRef, useState } from "react";
 
 const teamMembers = [
   {
-    name: "Alex Martinez",
-    role: "Lead Driver",
-    bio: "5-time championship winner with over 15 years of professional racing experience.",
+    name: "Shantanu Anantwar ",
+    role: "Software Lead",
+    bio: "Working on vehicle path planning, control logic, sensor interfacing and simulations.",
     image: "/team/driver-1.jpg",
     social: { twitter: "#", instagram: "#" }
   },
   {
-    name: "Sarah Chen",
+    name: "Shloak Nioding",
     role: "Chief Engineer",
-    bio: "MIT graduate with expertise in aerodynamics and powertrain optimization.",
+    bio: "Computer science undergrad working at intersection of machine learning and robotics",
     image: "/team/engineer-1.jpg",
     social: { twitter: "#", linkedin: "#" }
   },
   {
-    name: "Michael Torres",
-    role: "Race Strategist",
-    bio: "Former Formula 1 strategist with an unmatched understanding of race dynamics.",
+    name: " Pranil Bankar",
+    role: "Software Engineer",
+    bio: ".",
     image: "/team/strategist-1.jpg",
     social: { twitter: "#", linkedin: "#" }
   },
   {
-    name: "Emma Williams",
-    role: "Technical Director",
-    bio: "20 years of experience in motorsport engineering and team management.",
+    name: "Devansh Goel",
+    role: "Jr.Software Engineer",
+    bio: "Tech Nerd working on Emergency braking system and Control Logic",
     image: "/team/director-1.jpg",
     social: { twitter: "#", linkedin: "#" }
   },
   {
-    name: "James Rodriguez",
-    role: "Second Driver",
-    bio: "Rising star with multiple podium finishes in his debut season.",
+    name: "Sachin Mardikar",
+    role: "Jr.Software Engineer",
+    bio: "A curious engineer who enjoys building reliable autonomous systems and solving real-world problems through practical AI.",
     image: "/team/driver-2.jpg",
     social: { twitter: "#", instagram: "#" }
   },
   {
-    name: "Lisa Park",
-    role: "Performance Analyst",
-    bio: "Data science expert specializing in real-time performance optimization.",
+    name: "Ayush khandwe",
+    role: "Electronics Engineer",
+    bio: "Responsible for the electrical and electronics domain of the autonomous A-Baja vehicle, focusing on power distribution and integration.",
     image: "/team/analyst-1.jpg",
     social: { twitter: "#", linkedin: "#" }
   },
   {
-    name: "David Kim",
-    role: "Mechanical Engineer",
-    bio: "Specialist in suspension systems and chassis dynamics.",
+    name: "Govind Dhengare",
+    role: "Electronics Engineer",
+    bio: "Handling electronics and electrical architecture for Steer-By-Wire and Brake-By-Wire, ensuring closed loop control and safe operation..",
     image: "/team/engineer-2.jpg",
     social: { linkedin: "#" }
   },
   {
-    name: "Rachel Green",
-    role: "Team Manager",
-    bio: "Ensures seamless operations across all team functions.",
+    name: "Jigisha Mandavkar",
+    role: "Creative Media",
+    bio: "Creative media enthusiast crafting impactful visuals and stories for Impulsifier's autonomous vehicle team.",
     image: "/team/manager-1.jpg",
+    social: { twitter: "#", linkedin: "#" }
+  },
+  {
+    name: "Pradaksh Sawai",
+    role: "AI/ML Engineer",
+    bio: "I design autonomous intelligence, teaching machines to perceive the road, reason in motion, and drive the future!",
+    image: "/team/manager-2.jpg",
+    social: { twitter: "#", linkedin: "#" }
+  },
+  {
+    name: "Tamanna Sura",
+    role: "Designer",
+    bio: "An ambitious and brilliant mind fueled by passion, discipline, and vision, committed to pushing boundaries and achieving excellence in racing.",
+    image: "/team/manager-3.jpg",
     social: { twitter: "#", linkedin: "#" }
   },
 ];

@@ -25,13 +25,14 @@ export default function EventsPage() {
 
         <div className="max-w-7xl mx-auto px-8 sm:px-10 lg:px-12 py-20 md:py-32 relative z-10">
           <div className="max-w-3xl">
-            <span className="text-[#ff6b00] text-xs sm:text-sm font-medium tracking-wider uppercase block mb-4 md:mb-6">
+            <span className="text-[#ff6b00] text-xs sm:text-sm font-medium tracking-wider uppercase block mb-2 md:mb-4">
               Race Calendar
             </span>
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-6 md:mb-8">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white">
               Upcoming <span className="text-[#ff6b00]">Events</span>
             </h1>
-            <p className="text-white/60 text-base sm:text-lg leading-relaxed mb-8 md:mb-12">
+            <div className="h-16 md:h-24"></div>
+            <p className="text-white/60 text-base sm:text-lg leading-relaxed mb-2 md:mb-4">
               Join us at racetracks around the world as we compete for glory.
             </p>
           </div>
@@ -39,11 +40,12 @@ export default function EventsPage() {
       </section>
 
       {/* Upcoming Events */}
-      <section className="py-20 md:py-32 bg-[#0a0a0a] border-b border-white/5">
+      <section className="py-12 md:py-16 bg-[#0a0a0a] border-b border-white/5">
         <div className="max-w-7xl mx-auto px-8 sm:px-10 lg:px-12">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-10 md:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
             Upcoming <span className="text-[#ff6b00]">Events</span>
           </h2>
+          <div className="h-20 md:h-32"></div>
           <div className="space-y-4 md:space-y-6">
             {upcomingEvents.map((event, index) => (
               <div
@@ -72,9 +74,9 @@ export default function EventsPage() {
       </section>
 
       {/* Past Events */}
-      <section className="py-20 md:py-32 pb-24 md:pb-48 bg-[#0a0a0a]">
+      <section className="py-12 md:py-16 pb-16 md:pb-24 bg-[#0a0a0a]">
         <div className="max-w-7xl mx-auto px-8 sm:px-10 lg:px-12">
- 
+
           <div className="space-y-4 md:space-y-6">
 
           </div>

@@ -28,52 +28,45 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-[#0a0a0a]">
       {/* Hero Section */}
-      <section className="relative py-32 pt-48 bg-gradient-to-b from-[#0a0a0a] via-[#0a0a0a] to-[#0a0a0a]">
+      <section className="relative py-16 pt-48 bg-gradient-to-b from-[#0a0a0a] via-[#0a0a0a] to-[#0a0a0a]">
         {/* Background Gradient */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full bg-[#ff6b00]/10 blur-3xl" />
         </div>
 
-        <div className="max-w-7xl mx-auto px-8 sm:px-10 lg:px-12 py-32 relative z-10">
+        <div className="max-w-7xl mx-auto px-8 sm:px-10 lg:px-12 relative z-10">
           <div className="max-w-3xl">
-            <span className="text-[#ff6b00] text-sm font-medium tracking-wider uppercase block" style={{ marginBottom: '24px' }}>
-              Who We Are
-            </span>
-            <h1 className="text-5xl md:text-7xl font-bold text-white" style={{ marginBottom: '32px', marginTop: '98px' }}>
+
+            <h1 className="text-5xl md:text-7xl font-bold text-white" style={{ marginBottom: '32px', marginTop: '48px' }}>
               About <span className="text-[#ff6b00]">Impulsifier</span>
             </h1>
             <p className="text-white/60 text-lg leading-relaxed" style={{ marginBottom: '48px' }}>
-              Impulsifier Racing is more than a team—it’s a family united by passion for speed, precision engineering, and the relentless pursuit of racing excellence.
+               Impulsifier Racing is more than a team—it’s a family united by passion for speed, precision engineering, and the relentless pursuit of racing excellence.
             </p>
           </div>
         </div>
       </section>
 
       {/* Story Section */}
-      <section ref={sectionRef} className="py-32 bg-[#0a0a0a]">
+      <section ref={sectionRef} className="py-20 bg-[#0a0a0a]">
         <div className="max-w-7xl mx-auto px-8 sm:px-10 lg:px-12">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <span className="text-[#ff6b00] text-sm font-medium tracking-wider uppercase block" style={{ marginBottom: '24px', marginTop: '98px' }}>
+              <span className="text-[#ff6b00] text-sm font-medium tracking-wider uppercase block" style={{ marginBottom: '24px' }}>
                 Our Journey
               </span>
               <h2 className="text-4xl md:text-5xl font-bold text-white" style={{ marginBottom: '32px' }}>
-                The Story Behind the <span className="text-[#ff6b00]">Speed</span>
+                The Journey That Defines Our <span className="text-[#ff6b00]">Speed</span>
               </h2>
               <div className="text-white/60 leading-relaxed" style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
                 <p>
-                  Founded in 2015, Impulsifier Racing began as a small group of engineering enthusiasts
-                  with a shared dream: to build racing machines that push the boundaries of what's possible.
+                   Impulsifier Racing began as a small group of engineering enthusiasts with a shared dream: to build racing machines that push the boundaries of what’s possible.        
                 </p>
                 <p>
-                  What started in a modest garage has grown into a world-class racing operation,
-                  competing in prestigious events across the globe. Our journey has been defined by
-                  innovation, perseverance, and an unwavering commitment to excellence.
+                  What began in a modest garage has grown into Impulsifier Racing, now competing at top events worldwide. Our journey shows how passion, hard work, and innovation lead to success.
                 </p>
                 <p>
-                  Today, we stand as a testament to what passion and dedication can achieve.
-                  With multiple championship victories and a growing team of talented individuals,
-                  we continue to chase our ultimate goal: racing glory.
+                  Our journey stands as proof of what passion and commitment can accomplish. Backed by multiple championship victories and an expanding team of skilled professionals, we continue to drive forward toward our ultimate ambition: racing glory.
                 </p>
               </div>
             </div>
@@ -97,10 +90,10 @@ export default function AboutPage() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-32 bg-[#0a0a0a]">
+      <section className="py-20 bg-[#0a0a0a]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-16">
-            <span className="text-[#ff6b00] text-sm font-medium tracking-wider uppercase block" style={{ marginBottom: '24px', marginTop: '98px' }}>
+            <span className="text-[#ff6b00] text-sm font-medium tracking-wider uppercase block" style={{ marginBottom: '24px' }}>
               Our Purpose
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-white" style={{ marginBottom: '48px' }}>
@@ -140,10 +133,10 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="py-32 bg-[#0a0a0a]">
+      <section className="py-20 bg-[#0a0a0a]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-16">
-            <span className="text-[#ff6b00] text-sm font-medium tracking-wider uppercase block" style={{ marginBottom: '24px', marginTop: '58px' }}>
+            <span className="text-[#ff6b00] text-sm font-medium tracking-wider uppercase block" style={{ marginBottom: '24px', marginTop: 'px' }}>
               What Drives Us
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-white" style={{ marginBottom: '48px' }}>
@@ -187,7 +180,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-[#0a0a0a]">
+      <section className="py-16 bg-[#0a0a0a]">
         <div className="max-w-4xl mx-auto px-8 sm:px-10 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white" style={{ marginBottom: '24px' }}>
             Want to be part of our <span className="text-[#ff6b00]">story</span>?

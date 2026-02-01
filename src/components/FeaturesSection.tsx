@@ -51,10 +51,10 @@ export default function FeaturesSection() {
                         Why Choose Us
                     </span>
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white" style={{ marginBottom: '32px' }}>
-                        Why <span className="text-[#ff6b00]">Impulsifier</span>?
+                        Why Impulsifier is the <span className="text-[#ff6b00]">Future ?</span>
                     </h2>
                     <p className="text-white/60 max-w-2xl mx-auto text-base md:text-lg leading-relaxed" style={{ marginBottom: '80px' }}>
-                        We combine passion with technology to create racing experiences that push the boundaries of what&apos;s possible.
+                        Impulsifier is all about pushing boundaries in racing. We mix innovation with pure determination to make the sport smarter, faster, and more exciting — changing the way people experience performance both on and off the track.
                     </p>
                 </div>
 

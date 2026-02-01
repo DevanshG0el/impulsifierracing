@@ -1,8 +1,10 @@
 "use client";
 
+import Image from "next/image";
+
 export default function PartnersSection() {
     const partners = [
-        { id: 1, name: "Partner 1" },
+        { id: 1, name: "HTR", logo: "/htr.jpg" },
         { id: 2, name: "Partner 2" },
         { id: 3, name: "Partner 3" },
         { id: 4, name: "Partner 4" },
@@ -29,9 +31,20 @@ export default function PartnersSection() {
                             key={partner.id}
                             className="aspect-video bg-white/5 rounded-lg flex items-center justify-center hover:bg-white/10 transition-colors cursor-pointer border border-white/10"
                         >
-                            <span className="text-white/40 text-sm font-medium">
-                                {partner.name}
-                            </span>
+                            {partner.logo ? (
+                                <div className="relative w-full h-full p-6">
+                                    <Image
+                                        src={partner.logo}
+                                        alt={partner.name}
+                                        fill
+                                        className="object-contain"
+                                    />
+                                </div>
+                            ) : (
+                                <span className="text-white/40 text-sm font-medium">
+                                    {partner.name}
+                                </span>
+                            )}
                         </div>
                     ))}
                 </div>
