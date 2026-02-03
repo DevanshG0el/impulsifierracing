@@ -5,13 +5,6 @@ import Image from "next/image";
 export default function PartnersSection() {
     const partners = [
         { id: 1, name: "HTR", logo: "/htr.jpg" },
-        { id: 2, name: "Partner 2" },
-        { id: 3, name: "Partner 3" },
-        { id: 4, name: "Partner 4" },
-        { id: 5, name: "Partner 5" },
-        { id: 6, name: "Partner 6" },
-        { id: 7, name: "Partner 7" },
-        { id: 8, name: "Partner 8" },
     ];
 
     return (
@@ -25,11 +18,11 @@ export default function PartnersSection() {
                 </div>
 
                 {/* Partners Grid */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8">
+                <div className="flex justify-center">
                     {partners.map((partner) => (
                         <div
                             key={partner.id}
-                            className="aspect-video bg-white/5 rounded-lg flex items-center justify-center hover:bg-white/10 transition-colors cursor-pointer border border-white/10"
+                            className="w-48 h-48 bg-white/5 rounded-full flex items-center justify-center hover:bg-white/10 transition-colors cursor-pointer border border-white/10 overflow-hidden"
                         >
                             {partner.logo ? (
                                 <div className="relative w-full h-full p-6">
@@ -37,7 +30,7 @@ export default function PartnersSection() {
                                         src={partner.logo}
                                         alt={partner.name}
                                         fill
-                                        className="object-contain"
+                                        className="object-contain rounded-full"
                                     />
                                 </div>
                             ) : (

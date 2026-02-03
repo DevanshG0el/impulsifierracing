@@ -54,21 +54,32 @@ export default function ContactPage() {
           <div className="mt-10 pt-8 border-t border-gray-200">
             <h3 className="text-gray-900 font-bold mb-4">Follow Us</h3>
             <div className="flex gap-3">
-              {[
-                { name: "Instagram", icon: "I" },
-                { name: "Twitter", icon: "T" },
-                { name: "YouTube", icon: "Y" },
-                { name: "LinkedIn", icon: "L" }
-              ].map((social) => (
-                <a
-                  key={social.name}
-                  href="#"
-                  className="w-10 h-10 rounded-lg bg-gray-100 hover:bg-[#ff6b00] text-gray-600 hover:text-white flex items-center justify-center transition-all duration-300"
-                  aria-label={social.name}
-                >
-                  <span className="text-sm font-bold">{social.icon}</span>
-                </a>
-              ))}
+              <a
+                href="https://www.instagram.com/impulsifierracing?utm_source=qr&igsh=dDNoMHVlODA3N3lt"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-lg bg-gray-100 hover:bg-[#ff6b00] flex items-center justify-center transition-all duration-300 group"
+                aria-label="Instagram"
+              >
+                <img
+                  src="/icons8-instagram-50.png"
+                  alt="Instagram"
+                  className="w-6 h-6 group-hover:brightness-0 group-hover:invert transition-all"
+                />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/impulsifier-racing/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-lg bg-gray-100 hover:bg-[#ff6b00] flex items-center justify-center transition-all duration-300 group"
+                aria-label="LinkedIn"
+              >
+                <img
+                  src="/icons8-linkedin-50.png"
+                  alt="LinkedIn"
+                  className="w-6 h-6 group-hover:brightness-0 group-hover:invert transition-all"
+                />
+              </a>
             </div>
           </div>
         </div>

@@ -24,10 +24,8 @@ const ImpulsifierStaggeredMenu: React.FC<ImpulsifierStaggeredMenuProps> = ({ nav
 
     // Social media links
     const socialItems = [
-        { label: "Instagram", link: "https://instagram.com/impulsifierracing" },
-        { label: "Twitter", link: "https://twitter.com/impulsifierracing" },
-        { label: "YouTube", link: "https://youtube.com/@impulsifierracing" },
-        { label: "LinkedIn", link: "https://linkedin.com/company/impulsifierracing" },
+        { label: "Instagram", link: "https://www.instagram.com/impulsifierracing?utm_source=qr&igsh=dDNoMHVlODA3N3lt" },
+        { label: "LinkedIn", link: "https://www.linkedin.com/company/impulsifier-racing/" },
     ];
 
     // Custom logo component

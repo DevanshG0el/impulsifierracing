@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 
 const teamMembers = [
   {
-    name: "Shantanu Anantwar ",
+    name: "Shantanu Anantwar",
     role: "Software Lead",
     bio: "Working on vehicle path planning, control logic, sensor interfacing and simulations.",
     image: "/shantanu_anantwar_pfp - Shantanu.jpg",
@@ -17,15 +17,15 @@ const teamMembers = [
     bio: "Computer science undergrad working at intersection of machine learning and robotics",
     image: "/Shloak_Nioding_pfp - CSE_C2_34_Shloak Nioding.jpg",
     social: { twitter: "#", linkedin: "#" }
-  },
+  }, 
   {
-    name: " Pranil Bankar",
+    name: "Pranil Bankar",
     role: "Software Engineer",
-    bio: ".",
+    bio: "Senior Software team member",
     image: "/Pranil_Bankar_pfp - Pranil Bankar.jpeg",
     social: { twitter: "#", linkedin: "#" }
   },
-  {
+     {
     name: "Devansh Goel",
     role: "Jr.Software Engineer",
     bio: "Tech Nerd working on Emergency braking system and Control Logic",
@@ -40,7 +40,7 @@ const teamMembers = [
     social: { twitter: "#", instagram: "#" }
   },
   {
-    name: "Ayush khandwe",
+    name: "Ayush Khandwe",
     role: "Electronics Engineer",
     bio: "Responsible for the electrical and electronics domain of the autonomous A-Baja vehicle, focusing on power distribution and integration.",
     image: "/Ayush_Khandwe_pfp - Dangerous Boi.jpg",
@@ -49,14 +49,14 @@ const teamMembers = [
   {
     name: "Govind Dhengare",
     role: "Electronics Engineer",
-    bio: "Handling electronics and electrical architecture for Steer-By-Wire and Brake-By-Wire, ensuring closed loop control and safe operation..",
+    bio: "Handling electronics and electrical architecture for Steer-By-Wire and Brake-By-Wire, ensuring closed loop control and safe operation.",
     image: "/Govind_Dhengare_pfp - Govind Dhengare.jpg",
     social: { linkedin: "#" }
   },
   {
     name: "Jigisha Mandavkar",
     role: "Creative Media",
-    bio: "Creative media enthusiast crafting impactful visuals and stories for Impulsifier's autonomous vehicle team.",
+    bio: "Creative media enthusiast crafting impactful visuals and stories for Impulsifire's autonomous vehicle team.",
     image: "/Jigisha_Mandavksr_pfp - Jigisha.jpg",
     social: { twitter: "#", linkedin: "#" }
   },
@@ -72,6 +72,21 @@ const teamMembers = [
     role: "Designer",
     bio: "An ambitious and brilliant mind fueled by passion, discipline, and vision, committed to pushing boundaries and achieving excellence in racing.",
     image: "/Tamanna_Sura_photo - Tamanna Sura.jpeg",
+    social: { twitter: "#", linkedin: "#" }
+  },
+  {
+    name: "Astha Pande",
+    role: "PR & Management",
+    bio: "I'm Astha, handling PR & Management at Impulsifier Racing, driving partnerships, visibility, and seamless team coordination.",
+    image: "/Astha_Pande_pfp - Astha Pande.JPG",
+    social: { twitter: "#", linkedin: "#" }
+  },
+  
+  {
+    name: "Yash Dudhabale",
+    role: "Jr.Software Engineer",
+    bio: "Ambitious learner, always eager to grow, explore new ideas, and build meaningful projects through continuous learning.",
+    image: "/yash_dudhabale_pfp - Yash Dudhabale.jpg",
     social: { twitter: "#", linkedin: "#" }
   },
 ];

@@ -20,10 +20,8 @@ const footerLinks = {
         { name: "Cookie Policy", href: "/cookies" },
     ],
     social: [
-        { name: "Instagram", href: "#" },
-        { name: "Twitter", href: "#" },
-        { name: "YouTube", href: "#" },
-        { name: "LinkedIn", href: "#" },
+        { name: "Instagram", href: "https://www.instagram.com/impulsifierracing?utm_source=qr&igsh=dDNoMHVlODA3N3lt" },
+        { name: "LinkedIn", href: "https://www.linkedin.com/company/impulsifier-racing/" },
     ],
 };
 
