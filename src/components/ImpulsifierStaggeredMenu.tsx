@@ -32,10 +32,10 @@ const ImpulsifierStaggeredMenu: React.FC<ImpulsifierStaggeredMenuProps> = ({ nav
     const CustomLogo = () => {
         return (
             <Link href="/" className="inline-flex items-center gap-3 group">
-                <Logo className="w-16 h-16" />
+                <Logo className="w-12 h-12" />
                 <div className="flex flex-col">
-                    <span className="text-white font-bold text-xl tracking-wider">IMPULSIFIER</span>
-                    <span className="text-[#ff6b00] text-xs tracking-[0.3em] uppercase">Racing</span>
+                    <span className="text-white font-bold text-lg tracking-wider">IMPULSIFIER</span>
+                    <span className="text-[#ff6b00] text-[10px] tracking-[0.3em] uppercase">Racing</span>
                 </div>
             </Link>
         );
